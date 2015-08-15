@@ -68,7 +68,7 @@ public class SearchResults extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        listView = (ListView) view.findViewById(R.id.list);
+        listView = (ListView) view.findViewById(R.id.result_list);
 
         feedItems = new ArrayList<FeedItem>();
 
