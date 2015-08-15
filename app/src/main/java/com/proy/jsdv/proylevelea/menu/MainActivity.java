@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
         }
-        else if (Item.equals("Message")) {
+        else if (Item.equals("Inbox")) {
             Bundle args = new Bundle();
             args.putString(InboxFragment.ARG_SECTION_TITLE, Item);
 
