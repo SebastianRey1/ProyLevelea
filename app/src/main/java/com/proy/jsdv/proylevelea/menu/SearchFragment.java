@@ -43,7 +43,7 @@ public class SearchFragment extends android.app.Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         getJobSpecificationsFragment();
-       // getJobSearchResultsFragment();
+        getJobSearchResultsFragment();
     }
 
     public void getJobSpecificationsFragment(){
