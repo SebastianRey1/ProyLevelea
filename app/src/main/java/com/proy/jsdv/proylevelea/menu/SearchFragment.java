@@ -29,7 +29,7 @@ public class SearchFragment extends android.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.search_fragment, container, false);
+        View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         return view;
     }
@@ -54,12 +54,12 @@ public class SearchFragment extends android.app.Fragment {
         childFragTrans.addToBackStack("B");
         childFragTrans.commit();
     }
- /*   public void getJobSearchResultsFragment(){
+    public void getJobSearchResultsFragment(){
         FragmentManager childFragMan = getChildFragmentManager();
         FragmentTransaction childFragTrans = childFragMan.beginTransaction();
         SearchResults fragB = new SearchResults ();
         childFragTrans.add(R.id.search_results_fragment, fragB);
         childFragTrans.addToBackStack("B");
         childFragTrans.commit();
-    }*/
+    }
 }

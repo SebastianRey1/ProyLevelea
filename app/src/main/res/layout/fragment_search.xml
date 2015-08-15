@@ -11,5 +11,10 @@
         android:layout_height="140dp"
         android:id="@+id/search_specifications_fragment"
         />
-
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/search_results_fragment">
+    </FrameLayout>
 </RelativeLayout>
