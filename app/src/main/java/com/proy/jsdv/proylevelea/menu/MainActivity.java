@@ -4,8 +4,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
@@ -20,6 +18,7 @@ import com.proy.jsdv.proylevelea.R;
 import com.proy.jsdv.proylevelea.presentation.DisplayAdapter;
 
 public class MainActivity extends AppCompatActivity {
+    public final static String MAIN_CONTENT_TAG = "main_content";
     /**
      * Instancia del drawer
      */
@@ -147,40 +146,43 @@ public class MainActivity extends AppCompatActivity {
     private void selectItem2(String Item) {
         if (Item.equals("Profile")) {
             Bundle args = new Bundle();
-            args.putString(Main_Profile.ARG_SECTION_TITLE, Item);
+            args.putString(ProfileFragment.ARG_SECTION_TITLE, Item);
 
-            Fragment fragment = Main_Profile.newInstance(Item);
+            android.app.Fragment fragment = SearchFragment.newInstance(Item);
             fragment.setArguments(args);
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            android.app.FragmentManager fragmentManager = getFragmentManager();
             fragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_content, fragment)
+                    .replace(R.id.main_content, ProfileFragment.
+                            instantiate(MainActivity.this, ProfileFragment.class.getName()))
                     .commit();
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
         } else if (Item.equals("Setting")) {
             Bundle args = new Bundle();
-            args.putString(Main_Settings.ARG_SECTION_TITLE, Item);
+            args.putString(SettingsFragment.ARG_SECTION_TITLE, Item);
 
-            Fragment fragment = Main_Settings.newInstance(Item);
+            android.app.Fragment fragment = SearchFragment.newInstance(Item);
             fragment.setArguments(args);
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            android.app.FragmentManager fragmentManager = getFragmentManager();
             fragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_content, fragment)
+                    .replace(R.id.main_content, SettingsFragment.
+                            instantiate(MainActivity.this, SettingsFragment.class.getName()))
                     .commit();
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
         }else if (Item.equals("Feedback")) {
             Bundle args = new Bundle();
-            args.putString(Main_Feedback.ARG_SECTION_TITLE, Item);
+            args.putString(FeedbackFragment.ARG_SECTION_TITLE, Item);
 
-            Fragment fragment = Main_Feedback.newInstance(Item);
+            android.app.Fragment fragment = SearchFragment.newInstance(Item);
             fragment.setArguments(args);
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            android.app.FragmentManager fragmentManager = getFragmentManager();
             fragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_content, fragment)
+                    .replace(R.id.main_content, FeedbackFragment.
+                            instantiate(MainActivity.this, FeedbackFragment.class.getName()))
                     .commit();
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
@@ -188,61 +190,59 @@ public class MainActivity extends AppCompatActivity {
             Bundle args = new Bundle();
             args.putString(Main_Log_out.ARG_SECTION_TITLE, Item);
 
-            Fragment fragment = Main_Log_out.newInstance(Item);
+            android.app.Fragment fragment = SearchFragment.newInstance(Item);
             fragment.setArguments(args);
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            android.app.FragmentManager fragmentManager = getFragmentManager();
             fragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_content, fragment)
+                    .replace(R.id.main_content,Main_Log_out.
+                            instantiate(MainActivity.this, Main_Log_out.class.getName()))
                     .commit();
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
         }
         else if (Item.equals("Message")) {
             Bundle args = new Bundle();
-            args.putString(Main_Message.ARG_SECTION_TITLE, Item);
+            args.putString(InboxFragment.ARG_SECTION_TITLE, Item);
 
-            Fragment fragment = Main_Message.newInstance(Item);
+            android.app.Fragment fragment = SearchFragment.newInstance(Item);
             fragment.setArguments(args);
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            android.app.FragmentManager fragmentManager = getFragmentManager();
             fragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_content, fragment)
+                    .replace(R.id.main_content, InboxFragment.
+                            instantiate(MainActivity.this, InboxFragment.class.getName()))
                     .commit();
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
         }else if (Item.equals("Opportunity")) {
             Bundle args = new Bundle();
-            args.putString(Main_Opportunity.ARG_SECTION_TITLE, Item);
+            args.putString(OpportunityFragment.ARG_SECTION_TITLE, Item);
 
-            Fragment fragment = Main_Opportunity.newInstance(Item);
+            android.app.Fragment fragment = SearchFragment.newInstance(Item);
             fragment.setArguments(args);
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            android.app.FragmentManager fragmentManager = getFragmentManager();
             fragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_content, fragment)
+                    .replace(R.id.main_content, OpportunityFragment.
+                            instantiate(MainActivity.this, OpportunityFragment.class.getName()))
                     .commit();
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
         }else if (Item.equals("Search")) {
             Bundle args = new Bundle();
-            args.putString(Main_Search.ARG_SECTION_TITLE, Item);
-
-            Fragment fragment = Main_Search.newInstance(Item);
+            args.putString(SearchFragment.ARG_SECTION_TITLE, Item);
+            android.app.Fragment fragment = SearchFragment.newInstance(Item);
             fragment.setArguments(args);
-            FragmentManager fragmentManager = getSupportFragmentManager();
+            android.app.FragmentManager fragmentManager = getFragmentManager();
             fragmentManager
                     .beginTransaction()
-                    .replace(R.id.main_content, fragment)
+                    .replace(R.id.main_content, SearchFragment.
+                            instantiate(MainActivity.this, SearchFragment.class.getName()))
                     .commit();
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        finish();
-        super.onBackPressed();
-    }
 }

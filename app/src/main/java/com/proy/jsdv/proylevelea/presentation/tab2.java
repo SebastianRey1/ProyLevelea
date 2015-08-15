@@ -13,7 +13,7 @@ import com.proy.jsdv.proylevelea.R;
 public class tab2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view=inflater.inflate(R.layout.tab2,container,false);
+        View view=inflater.inflate(R.layout.fragment_tab2,container,false);
 
 
 

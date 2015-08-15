@@ -1,60 +1,94 @@
-package com.proy.jsdv.proylevelea.opportunity;
+package com.proy.jsdv.proylevelea.menu;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ListView;
+
+import com.android.volley.Cache;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.proy.jsdv.proylevelea.R;
+import com.proy.jsdv.proylevelea.opportunity.ApplyActivity;
 import com.proy.jsdv.proylevelea.opportunity.adapter.FeedListAdapter;
 import com.proy.jsdv.proylevelea.opportunity.app.AppController;
 import com.proy.jsdv.proylevelea.opportunity.data.FeedItem;
-
-
-
-import java.io.UnsupportedEncodingException;
-import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.widget.ListView;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.android.volley.Cache;
-import com.android.volley.Cache.Entry;
-import com.android.volley.Request.Method;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonObjectRequest;
-
-//All principal presentation
-//All item should be loaded in levelea
-//The initial intems were loaded by levelea group
-
-public class MainOpportunity extends Activity {
-    private static final String TAG = MainOpportunity.class.getSimpleName();
+public class OpportunityFragment extends android.app.Fragment {
+    public static final String ARG_SECTION_TITLE = "section_number";
+    //private String URL_FEED = "https://levelea-oportunities.azure-mobile.net/";
+    private String URL_FEED = "https://api.myjson.com/bins/3mc8o";
+    private static final String TAG = OpportunityFragment.class.getSimpleName();
     private ListView listView;
     private FeedListAdapter listAdapter;
     private List<FeedItem> feedItems;
-    private String URL_FEED = "https://levelea-oportunities.azure-mobile.net/";
+
+    public static OpportunityFragment newInstance(String sectionTitle) {
+        OpportunityFragment fragment = new OpportunityFragment();
+        Bundle args = new Bundle();
+        args.putString(ARG_SECTION_TITLE, sectionTitle);
+        fragment.setArguments(args);
+        return fragment;
+    }
+
+    public OpportunityFragment() {
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_opportunity, container, false);
+        return view;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+    }
+
     @SuppressLint("NewApi")
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_opportunity);
-
-        listView = (ListView) findViewById(R.id.list);
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        listView = (ListView) view.findViewById(R.id.list);
 
         feedItems = new ArrayList<FeedItem>();
 
-        listAdapter = new FeedListAdapter(this, feedItems);
+        listAdapter = new FeedListAdapter(getActivity(), feedItems);
         listView.setAdapter(listAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getActivity(), ApplyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        // These two lines not needed,
+        // just to get the look of facebook (changing background color & hiding the icon)
+//        getActionBar().setBackgroundDrawable(new ColorDrawable(Color.parseColor("#3b5998")));
+//        getActionBar().setIcon(
+//                new ColorDrawable(getResources().getColor(android.R.color.transparent)));
 
         // We first check for cached request
         Cache cache = AppController.getInstance().getRequestQueue().getCache();
-        Entry entry = cache.get(URL_FEED);
+        Cache.Entry entry = cache.get(URL_FEED);
         if (entry != null) {
             // fetch the data from cache
             try {
@@ -70,7 +104,7 @@ public class MainOpportunity extends Activity {
 
         } else {
             // making fresh volley request and getting json
-            JsonObjectRequest jsonReq = new JsonObjectRequest(Method.GET,
+            JsonObjectRequest jsonReq = new JsonObjectRequest(Request.Method.GET,
                     URL_FEED, null, new Response.Listener<JSONObject>() {
 
                 @Override
@@ -93,10 +127,6 @@ public class MainOpportunity extends Activity {
         }
 
     }
-
-    /**
-     * Parsing json reponse and passing the data to feed view list adapter
-     * */
     private void parseJsonFeed(JSONObject response) {
         try {
             JSONArray feedArray = response.getJSONArray("feed");
@@ -130,11 +160,4 @@ public class MainOpportunity extends Activity {
             e.printStackTrace();
         }
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main__opportunity, menu);
-        return true;
-    }
-
 }

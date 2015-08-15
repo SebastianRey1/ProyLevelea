@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.proy.jsdv.proylevelea.menu.search.SearchSpecifications">
+
+    <Spinner
+        android:id="@+id/job_area_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/job_arrays"
+        android:prompt="@string/job_area_prompt"
+        android:layout_alignRight="@+id/job_type_spinner"
+        android:layout_alignEnd="@+id/job_type_spinner" />
+    <Spinner
+        android:id="@+id/job_type_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/job_area_spinner"
+        android:entries="@array/job_type_arrays"
+        android:prompt="@string/job_type_prompt"
+        android:layout_toLeftOf="@+id/search_btn"
+        android:layout_toStartOf="@+id/search_btn" />
+
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/search"
+        android:id="@+id/search_btn"
+        android:layout_alignBottom="@+id/job_type_spinner"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+</RelativeLayout>

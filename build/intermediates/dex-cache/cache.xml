@@ -2,81 +2,81 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\classes-367466ddbc5fb2bf254daa902c9abe6c30984c81.jar" />
-    </item>
-    <item
-        jar="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\libs\volley.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\volley-6c76cfbbba8df82e83f277925464d31f809dd8a6.jar" />
-    </item>
-    <item
-        jar="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\classes-ac16e2837a8cb286e41e947aa19b1e1b7806648f.jar" />
-    </item>
-    <item
-        jar="C:\Users\deiver\.gradle\caches\modules-2\files-2.1\com.microsoft.azure\azure-mobile-services-android-sdk\2.0.2\856c0726767e0e5e960832781400716116bb8a54\azure-mobile-services-android-sdk-2.0.2.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="856c0726767e0e5e960832781400716116bb8a54">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\azure-mobile-services-android-sdk-2.0.2-987449949d140400281d36cfb2955f7b63580949.jar" />
-    </item>
-    <item
-        jar="C:\Users\deiver\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\18.0\cce0823396aa693798f8882e64213b1772032b09\guava-18.0.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="cce0823396aa693798f8882e64213b1772032b09">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\guava-18.0-157990f1de902d336c78fda374383c1e310d2a77.jar" />
-    </item>
-    <item
-        jar="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="f8efd0096475e0daf054267b61544e10dc776503">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\classes-a7b431e154e524114624591e95aa8d518276d5a0.jar" />
-    </item>
-    <item
-        jar="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\classes-9bd18c97ac3882b594651f54f5049070f8f14e4e.jar" />
-    </item>
-    <item
-        jar="C:\Users\deiver\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
-        jumboMode="false"
-        revision="22.0.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-4e31050620b637b6ad3e2d95fda77e9992d34c8d.jar" />
-    </item>
-    <item
-        jar="C:\Users\deiver\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
+        jar="C:\Users\Sebastian\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3\5fc52c41ef0239d1093a1eb7c3697036183677ce\gson-2.3.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\gson-2.3-65e554cd7774b3f81213ec984bf874f162f7859b.jar" />
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\gson-2.3-1af42dae400380502aecc23d8ba4cd5bffae0931.jar" />
     </item>
     <item
-        jar="C:\Users\deiver\.gradle\caches\modules-2\files-2.1\com.intellij\annotations\12.0\bbcf6448f6d40abe506e2c83b70a3e8bfd2b4539\annotations-12.0.jar"
+        jar="C:\Users\Sebastian\.gradle\caches\modules-2\files-2.1\com.intellij\annotations\12.0\bbcf6448f6d40abe506e2c83b70a3e8bfd2b4539\annotations-12.0.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="bbcf6448f6d40abe506e2c83b70a3e8bfd2b4539">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\annotations-12.0-e2495240129f8cabc5c5bbc7827b78dba00eff94.jar" />
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\annotations-12.0-3f0e832921243e9aad14525ba0c1112944eeca9d.jar" />
     </item>
     <item
-        jar="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jar="C:\Users\Sebastian\.gradle\caches\modules-2\files-2.1\com.google.guava\guava\18.0\cce0823396aa693798f8882e64213b1772032b09\guava-18.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\guava-18.0-9b97748d42da39659031202a86f80578989c7ffb.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\exploded-aar\com.android.support\design\22.2.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="fc63b820d54c8a27a3a614bdd93920e0076581c2">
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\classes-7e18638732343255d8e76b2e0a6089d57b0f2f58.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
         jumboMode="false"
         revision="22.0.1"
         sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
-        <dex dex="C:\Users\deiver\Desktop\Android\Aplicacion\Desarrollo\ProyLevelea\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-2150eef01af7131f5323cdb83462e0c64be1cf33.jar" />
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-b034bd1a27eccc24564459415fee1ebb9eb91ccd.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sebastian\.gradle\caches\modules-2\files-2.1\com.microsoft.azure\azure-mobile-services-android-sdk\2.0.2\856c0726767e0e5e960832781400716116bb8a54\azure-mobile-services-android-sdk-2.0.2.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="856c0726767e0e5e960832781400716116bb8a54">
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\azure-mobile-services-android-sdk-2.0.2-21226c7f8dfa246d66444040f1c7227167c75ecc.jar" />
+    </item>
+    <item
+        jar="D:\Programming\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-fd3a397705859dfbfb4552e7c9a736035dfd43e3.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\classes-d39c2857023127a83373a6dcde150f5e40ed9a9b.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\classes-83f7b6ad56a7724a9b16164ba9b45fb95caff1b9.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\1.3.0\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ac6948cce36f694f3eb3d73a135e298dc4b3527a">
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\classes-9389a7b1237e7c2709401ff553564ddd11a452ad.jar" />
+    </item>
+    <item
+        jar="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\libs\volley.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="d4aaa36e04ee71a83444f8367c97a46fda662d2c">
+        <dex dex="C:\Users\Sebastian\Documents\GitHub\old lvlea\ProyLevelea\app\build\intermediates\pre-dexed\debug\volley-a88831fa70e94c626b68cbd6aee284b4ede0c1a3.jar" />
     </item>
 
 </items>

@@ -1,9 +1,9 @@
-package com.proy.jsdv.proylevelea.menu;
+package com.proy.jsdv.proylevelea.menu.search;
 
 import android.annotation.SuppressLint;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +17,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.proy.jsdv.proylevelea.R;
+import com.proy.jsdv.proylevelea.menu.OpportunityFragment;
 import com.proy.jsdv.proylevelea.opportunity.ApplyActivity;
 import com.proy.jsdv.proylevelea.opportunity.adapter.FeedListAdapter;
 import com.proy.jsdv.proylevelea.opportunity.app.AppController;
@@ -30,30 +31,30 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Main_Opportunity extends Fragment {
+public class SearchResults extends Fragment {
     public static final String ARG_SECTION_TITLE = "section_number";
     //private String URL_FEED = "https://levelea-oportunities.azure-mobile.net/";
     private String URL_FEED = "https://api.myjson.com/bins/3mc8o";
-    private static final String TAG = Main_Opportunity.class.getSimpleName();
+    private static final String TAG = OpportunityFragment.class.getSimpleName();
     private ListView listView;
     private FeedListAdapter listAdapter;
     private List<FeedItem> feedItems;
 
-    public static Main_Opportunity newInstance(String sectionTitle) {
-        Main_Opportunity fragment = new Main_Opportunity();
+    public static OpportunityFragment newInstance(String sectionTitle) {
+        OpportunityFragment fragment = new OpportunityFragment();
         Bundle args = new Bundle();
         args.putString(ARG_SECTION_TITLE, sectionTitle);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public Main_Opportunity() {
+    public SearchResults() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_main__opportunity, container, false);
+        View view = inflater.inflate(R.layout.fragment_search_results, container, false);
         return view;
     }
 

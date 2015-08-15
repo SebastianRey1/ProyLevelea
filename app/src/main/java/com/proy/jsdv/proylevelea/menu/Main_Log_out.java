@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.proy.jsdv.proylevelea.R;
 
-public class Main_Log_out extends Fragment {
+public class Main_Log_out extends android.app.Fragment {
     public static final String ARG_SECTION_TITLE = "section_number";
 
     public static Main_Log_out newInstance(String sectionTitle) {

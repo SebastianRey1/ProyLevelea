@@ -2,7 +2,6 @@ package com.proy.jsdv.proylevelea.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,14 +10,14 @@ import android.widget.CompoundButton;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import com.proy.jsdv.proylevelea.AboutActivty;
+import com.proy.jsdv.proylevelea.AboutActivity;
 import com.proy.jsdv.proylevelea.R;
 
 
 
 
 
-public class Main_Settings extends Fragment {
+public class SettingsFragment extends android.app.Fragment {
     private Switch OppState;
     private Button btnAbout;
 
@@ -26,21 +25,21 @@ public class Main_Settings extends Fragment {
 
     public static final String ARG_SECTION_TITLE = "section_number";
 
-    public static Main_Settings newInstance(String sectionTitle) {
-        Main_Settings fragment = new Main_Settings();
+    public static SettingsFragment newInstance(String sectionTitle) {
+        SettingsFragment fragment = new SettingsFragment();
         Bundle args = new Bundle();
         args.putString(ARG_SECTION_TITLE, sectionTitle);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public Main_Settings() {
+    public SettingsFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        final View view = inflater.inflate(R.layout.activity_main__settings, container, false);
+        final View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
 
         return view;
@@ -79,7 +78,7 @@ public class Main_Settings extends Fragment {
         btnAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),AboutActivty.class);
+                Intent i = new Intent(getActivity(),AboutActivity.class);
                 startActivity(i);
             }
         });

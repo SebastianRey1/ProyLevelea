@@ -1,31 +1,30 @@
 package com.proy.jsdv.proylevelea.menu;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.proy.jsdv.proylevelea.R;
 
-public class Main_Message extends Fragment {
+public class FeedbackFragment extends android.app.Fragment {
     public static final String ARG_SECTION_TITLE = "section_number";
 
-    public static Main_Message newInstance(String sectionTitle) {
-        Main_Message fragment = new Main_Message();
+    public static FeedbackFragment newInstance(String sectionTitle) {
+        FeedbackFragment fragment = new FeedbackFragment();
         Bundle args = new Bundle();
         args.putString(ARG_SECTION_TITLE, sectionTitle);
         fragment.setArguments(args);
         return fragment;
     }
 
-    public Main_Message() {
+    public FeedbackFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_main__message, container, false);
+        View view = inflater.inflate(R.layout.fragment__feedback, container, false);
         return view;
     }
 
@@ -34,4 +33,3 @@ public class Main_Message extends Fragment {
         super.onCreate(savedInstanceState);
     }
 }
-

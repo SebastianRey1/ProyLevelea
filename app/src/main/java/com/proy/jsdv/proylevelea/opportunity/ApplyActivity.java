@@ -1,5 +1,6 @@
 package com.proy.jsdv.proylevelea.opportunity;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,7 +11,7 @@ import android.widget.Toast;
 
 import com.proy.jsdv.proylevelea.R;
 
-public class ApplyActivity extends AppCompatActivity {
+public class ApplyActivity extends Activity {
     Button applyBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,12 +26,6 @@ public class ApplyActivity extends AppCompatActivity {
         });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_apply, menu);
-        return true;
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

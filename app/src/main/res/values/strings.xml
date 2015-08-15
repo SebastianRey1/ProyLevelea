@@ -11,7 +11,6 @@
     <string name="log_out_item">Log_out</string>
     <string name="feedback_item">Feedback</string>
     <string name="config_item">Configuration</string>
-    <string name="title_activity_main_activity2">MainActivity2Activity</string>
 
     <string name="hello_Settings">Hello Setting!</string>
     <string name="hello_Opportunity">Hello Opportunity!</string>
@@ -36,17 +35,21 @@
     <string name="title_activity_main__search">Main_Search</string>
     <string name="title_activity_main__log_out">Main_Log_out</string>
     <string name="title_activity_main__feedback">Main_Feedback</string>
+    <string name="title_activity_about_activty">Main_About</string>>
+    <string name="title_activity_apply">Apply Activity</string>
     <string name="email_profile">Email account</string>
 
-    //Log in and registration Button strings
-    <string name="password">Password</string>
+    //Buttons
     <string name="register">Register</string>
     <string name="log_in">Login</string>
     <string name="cancel">Cancel</string>
     <string name="apply">Apply to Job</string>
+    <string name="search">Search Job</string>
+
 
     //Registration strings
     <string name="id">ID</string>
+    <string name="password">Password</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
     <string name="email">Email</string>
@@ -56,6 +59,26 @@
     <string name="country">Country</string>
     <string name="birth_day">Birthday</string>
 
+    //Job Area Spinner
+    <string name="job_area_prompt">Job Interest Area</string>
+    <string-array name="job_arrays">
+        <item>Health Sciences</item>
+        <item>Architecture and Engineering</item>
+        <item>Administration</item>
+        <item>Information Technologies</item>
+        <item>Social Sciences</item>
+        <item>Hospitality</item>
+        <item>Business Administration</item>
+    </string-array>
+    //Job Type Spinner
+    <string name="job_type_prompt">Job Type</string>
+    <string-array name="job_type_arrays">
+        <item>Full Time</item>
+        <item>Partial Time</item>
+        <item>Internship</item>
+    </string-array>
+
+
         <string name="Text">Una aplicación orientada a los estudiantes que necesitan un puesto laboral;
 El propósito de nuestra aplicación es, poder dar la opción, de que obtengas la experiencia que las
         empresas requieren al ocupar un puesto.
@@ -64,8 +87,6 @@ Por esta razón, esta aplicación le dará oportunidad de ganar esa experiencia,
 En nuestra app se afiliaran diferentes empresas las cuales notificaran una serie de puestos,
         en los cuales usted puede forjar su currículo, Reputación y adquirir experiencia, y porque no,
         asta un posible puesto laboral.</string>
-    <string name="title_activity_about_activty">AboutActivty</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_apply">ApplyActivity</string>
+
 </resources>
