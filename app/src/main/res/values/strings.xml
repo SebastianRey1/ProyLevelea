@@ -8,12 +8,10 @@
     <string name="search_item">Search</string>
     <string name="message_item">Inbox</string>
     <string name="setting_item">Setting</string>
-    <string name="log_out_item">Log_out</string>
-    <string name="feedback_item">Feedback</string>
+    <string name="fb_help_item">Help and Feedback</string>
     <string name="config_item">Configuration</string>
 
     <string name="hello_Message">Hello Message!</string>
-    <string name="hello_log_out">Hello log out!</string>
     <string name="hello_Feedback">Hello Feedback!</string>
 
 

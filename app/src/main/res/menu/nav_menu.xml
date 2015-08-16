@@ -29,13 +29,9 @@
                     android:icon="@drawable/ic_settings_applications_black_24dp"
                     android:title="@string/setting_item" />
                 <item
-                    android:id="@+id/id_nav_log_out"
-                    android:icon="@drawable/ic_power_settings_new_black_48dp"
-                    android:title="@string/log_out_item" />
-                <item
                     android:id="@+id/id_nav_feedback"
                     android:icon="@drawable/ic_feedback_black_48dp"
-                    android:title="@string/feedback_item" />
+                    android:title="@string/fb_help_item" />
             </menu>
         </item>
     </group>

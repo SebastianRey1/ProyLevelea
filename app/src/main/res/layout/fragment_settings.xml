@@ -26,11 +26,29 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="Edit Profile"
+        android:id="@+id/btnEditProfile"
+        android:
+        android:textSize="15sp"
+        android:layout_below="@+id/oppSta"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log out"
+        android:id="@+id/btnLogout"
+        android:textSize="15sp"
+        android:layout_below="@+id/btnEditProfile"
+        android:layout_alignStart="@+id/aboutApp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="About"
         android:id="@+id/aboutApp"
         android:textSize="15sp"
-        android:layout_below="@+id/oppSta"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="159dp" />
+        android:layout_below="@+id/btnLogout"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
