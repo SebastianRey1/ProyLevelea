@@ -1,5 +1,6 @@
 package com.proy.jsdv.proylevelea.menu;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -9,10 +10,15 @@ import android.support.v4.view.PagerTabStrip;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 
 import com.proy.jsdv.proylevelea.R;
 import com.proy.jsdv.proylevelea.presentation.DisplayAdapter;
@@ -120,28 +126,42 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home:
                 drawerLayout.openDrawer(GravityCompat.START);
                 return true;
+            case R.id.contact_us:
+            LayoutInflater inflater = getLayoutInflater();
+
+            View dialoglayout = inflater.inflate(R.layout.activity_contact_us, null);
+
+            final EditText etAsunto = (EditText) dialoglayout.findViewById(R.id.et_EmailAsunto);
+            final EditText etMensaje = (EditText) dialoglayout.findViewById(R.id.et_EmailMensaje);
+
+            Button sendMailBtn = (Button) dialoglayout.findViewById(R.id.btn_send_mail);
+            sendMailBtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    String subject = etAsunto.getText().toString();
+                    String message = etMensaje.getText().toString();
+
+                    Intent email = new Intent(Intent.ACTION_SEND);
+                    email.putExtra(Intent.EXTRA_EMAIL, new String[] { "sebastianr1232@gmail.com"});
+                    email.putExtra(Intent.EXTRA_SUBJECT, subject);
+                    email.putExtra(Intent.EXTRA_TEXT, message);
+
+                    // need this to prompts email client only
+                    email.setType("message/rfc822");
+                    startActivity(Intent.createChooser(email, getString(R.string.choose_mail)));
+
+                }
+            });
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+            builder.setView(dialoglayout);
+            builder.show();
+
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
-    /*private void selectItem(String title) {
-        // Enviar título como arguemento del fragmento
-        Bundle args = new Bundle();
-        args.putString(PlaceholderFragment.ARG_SECTION_TITLE, title);
-
-        Fragment fragment = PlaceholderFragment.newInstance(title);
-        fragment.setArguments(args);
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager
-                .beginTransaction()
-                .replace(R.id.main_content, fragment)
-                .commit();
-
-        drawerLayout.closeDrawers(); // Cerrar drawer
-
-        setTitle(title); // Setear título actual
-
-    }*/
 
     private void selectItem2(String Item) {
         if (Item.equals("Profile")) {
@@ -159,6 +179,7 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
         } else if (Item.equals("Setting")) {
+
             Bundle args = new Bundle();
             args.putString(SettingsFragment.ARG_SECTION_TITLE, Item);
 
@@ -231,4 +252,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawers();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }

@@ -69,6 +69,69 @@
         </TableRow>
         <TableRow
             android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:id="@+id/email_textView"
+                android:layout_column="0" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textEmailAddress"
+                android:ems="10"
+                android:id="@+id/email_field"
+                android:layout_column="1"
+                android:layout_span="2" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/password"
+                android:id="@+id/password_textView"
+                android:layout_column="0" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/password_field"
+                android:layout_column="1"
+                android:layout_span="2" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/retype_password"
+                android:id="@+id/retype_password_textView"
+                android:layout_column="0" />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/retype_password_field"
+                android:layout_column="1"
+                android:layout_span="2" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
             <TextView
@@ -88,24 +151,7 @@
                 android:layout_span="2" />
 
         </TableRow>
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
 
-            <TextView
-                style=""
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/country" >
-            </TextView>
-
-            <EditText
-                android:id="@+id/country"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="textCapWords"
-                android:layout_span="2" />
-        </TableRow>
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -129,22 +175,46 @@
         </TableRow>
 
         <TableRow
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content" >
+
+            <TextView
+                style=""
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/country" >
+            </TextView>
+
+            <Spinner
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:entries="@array/countries_array"
+                android:prompt="@string/country_prompt"
+                android:id="@+id/country_spinner"
+                android:layout_column="1"
+                android:layout_span="2" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/bn_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="postData"
-                android:text="@string/register" />
+                android:text="@string/register"
+                android:layout_column="0" />
 
             <Button
                 android:id="@+id/bn_cancel2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/cancel" />
-
+                android:text="@string/cancel"
+                android:layout_column="1" />
         </TableRow>
+
     </TableLayout>
 </com.proy.jsdv.proylevelea.registration.SlidingRelativeLayout>

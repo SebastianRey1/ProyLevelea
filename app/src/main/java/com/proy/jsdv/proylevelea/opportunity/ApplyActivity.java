@@ -11,7 +11,7 @@ import android.widget.Toast;
 
 import com.proy.jsdv.proylevelea.R;
 
-public class ApplyActivity extends Activity {
+public class ApplyActivity extends AppCompatActivity {
     Button applyBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
