@@ -28,27 +28,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Edit Profile"
+        android:textColor="@color/white"
         android:id="@+id/btnEditProfile"
-        android:textSize="15sp"
+        android:textSize="12sp"
+        android:background="@drawable/buttons_bg"
+        android:layout_marginTop="24dp"
         android:layout_below="@+id/oppSta"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignEnd="@+id/oppSta" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Log out"
+        android:textColor="@color/white"
         android:id="@+id/btnLogout"
-        android:textSize="15sp"
-        android:layout_below="@+id/btnEditProfile"
-        android:layout_alignStart="@+id/aboutApp" />
+        android:textSize="12sp"
+        android:background="@drawable/buttons_bg"
+        android:layout_alignTop="@+id/btnEditProfile"
+        android:layout_alignStart="@+id/oppSta"
+        android:layout_marginStart="20dp" />
 
-    <Button
+   <!-- <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About"
         android:id="@+id/aboutApp"
-        android:textSize="15sp"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:background="@drawable/buttons_bg"
         android:layout_below="@+id/btnLogout"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true" />-->
 
 </RelativeLayout>

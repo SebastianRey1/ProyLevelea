@@ -1,6 +1,17 @@
 <resources>
 
-    <style name="Theme.lvleatheme" parent="Base.AppTheme"/>
+    <style name="Theme.lvleatheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:windowBackground">@drawable/actionbar_translucent</item>
+        <item name="android:actionBarStyle">@style/ActionBar.Overlay</item>
+        <item name="android:windowActionBarOverlay">true</item>
+    </style>
+
+    <style name="ActionBar.Overlay"
+        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+
+        <item name="android:background">@drawable/actionbar_translucent</item>
+
+    </style>
 
     <style name="Base.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/primaryColor</item>
@@ -10,18 +21,7 @@
         <item name="android:windowBackground">@color/window_background</item>
     </style>
 
-    <style name="Buttons" parent="Base.Widget.AppCompat.Button">
-        <item name="android:gravity">center_vertical|center_horizontal</item>
-        <item name="android:textColor">#FFFFFFFF</item>
-        <item name="android:shadowColor">#FF000000</item>
-        <item name="android:shadowDx">0</item>
-        <item name="android:shadowDy">-1</item>
-        <item name="android:shadowRadius">0.2</item>
-        <item name="android:textSize">16dip</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:focusable">true</item>
-        <item name="android:clickable">true</item>
-    </style>
+
 
 
 </resources>

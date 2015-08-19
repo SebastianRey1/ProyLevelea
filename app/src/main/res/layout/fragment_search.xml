@@ -28,6 +28,8 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:background="@drawable/buttons_bg"
         android:text="@string/search"
         android:id="@+id/search_btn"
         android:layout_alignBottom="@+id/job_type_spinner"

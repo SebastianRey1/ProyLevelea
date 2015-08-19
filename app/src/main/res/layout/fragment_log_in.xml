@@ -59,6 +59,8 @@
             <Button
                 android:id="@+id/bn_log_in"
                 android:layout_width="wrap_content"
+                android:textColor="@color/white"
+                android:background="@drawable/buttons_bg"
                 android:layout_height="wrap_content"
                 android:onClick="retrieveSampleData"
                 android:text="@string/log_in" />
@@ -68,6 +70,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="clearControls"
+                android:textColor="@color/white"
+                android:background="@drawable/buttons_bg"
                 android:text="@string/cancel"
                 android:layout_column="2" />
 

@@ -73,7 +73,7 @@ public class SettingsFragment extends android.app.Fragment {
         });
 
 
-        btnAbout = (Button) view.findViewById(R.id.aboutApp);
+       /* btnAbout = (Button) view.findViewById(R.id.aboutApp);
 
         btnAbout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +81,7 @@ public class SettingsFragment extends android.app.Fragment {
                 Intent i = new Intent(getActivity(),AboutActivity.class);
                 startActivity(i);
             }
-        });
+        });*/
 
 
 

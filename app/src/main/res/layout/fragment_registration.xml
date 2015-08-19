@@ -205,6 +205,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="postData"
+                android:textColor="@color/white"
+                android:background="@drawable/buttons_bg"
                 android:text="@string/register"
                 android:layout_column="0" />
 
@@ -212,6 +214,8 @@
                 android:id="@+id/bn_cancel2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:background="@drawable/buttons_bg"
                 android:text="@string/cancel"
                 android:layout_column="1" />
         </TableRow>
