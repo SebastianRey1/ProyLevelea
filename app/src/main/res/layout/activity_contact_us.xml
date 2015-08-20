@@ -39,7 +39,8 @@
             <EditText
                 android:id="@+id/et_EmailAsunto"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_tf_style">
             </EditText>
 
             <TextView
@@ -53,6 +54,7 @@
                 android:id="@+id/et_EmailMensaje"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border_rectangle_tv_style"
                 android:gravity="top"
                 android:hint="@string/write_message"
                 android:inputType="textMultiLine"
@@ -61,7 +63,9 @@
             <Button
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:textColor="@drawable/buttons_bg"
+                android:textSize="12sp"
+                android:textColor="@color/white"
+                android:background="@drawable/buttons_bg"
                 android:text="@string/send_mail"
                 android:id="@+id/btn_send_mail" />
         </LinearLayout>

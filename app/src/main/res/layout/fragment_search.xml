@@ -29,8 +29,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
+
+        android:gravity="center_vertical|center"
         android:background="@drawable/buttons_bg"
         android:text="@string/search"
+        android:textSize="12sp"
         android:id="@+id/search_btn"
         android:layout_alignBottom="@+id/job_type_spinner"
         android:layout_alignParentRight="true"

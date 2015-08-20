@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:weightSum="2"
-    android:textAlignment="center"
     android:orientation="horizontal"
-    android:layout_height="wrap_content">
+    android:layout_height="match_parent"
+    android:background="@drawable/student1">
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Student"
+        android:text="form your profession, with the best companies"
+        android:textStyle="bold"
         android:id="@+id/textView"
         android:gravity="center_vertical|center"
-        android:textAlignment="inherit"
         android:textIsSelectable="false"
-        android:textSize="20dp"
-        android:padding="120dp"
-        android:layout_alignTop="@+id/imageView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="134dp" />
+        android:textSize="21sp"
+        android:padding="100dp"
+
+        android:layout_marginTop="160dp" />
 
 </RelativeLayout>

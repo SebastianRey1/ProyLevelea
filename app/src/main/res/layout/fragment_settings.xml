@@ -1,52 +1,50 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context="com.proy.jsdv.proylevelea.menu.SettingsFragment">
 
 
     <Switch
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Opportunity State"
         android:id="@+id/oppSta"
+        android:background="@drawable/border_rectangle_tv_style"
         android:checked="false"
-        android:layout_alignParentLeft="true"
         android:layout_marginLeft="48dp"
-        android:layout_marginTop="127dp"
+        android:layout_marginBottom="10dp"
         android:height="50dp"
         android:textSize="20sp"
         android:switchMinWidth="50sp"
         android:switchPadding="50sp"
-        android:layout_alignParentTop="true"
+        android:layout_above="@+id/btnEditProfile"
         android:layout_centerHorizontal="true" />
 
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:text="Edit Profile"
         android:textColor="@color/white"
+        android:background="@drawable/buttons_bg"
         android:id="@+id/btnEditProfile"
         android:textSize="12sp"
-        android:background="@drawable/buttons_bg"
-        android:layout_marginTop="24dp"
-        android:layout_below="@+id/oppSta"
-        android:layout_alignEnd="@+id/oppSta" />
+        android:layout_marginRight="5dp"
+        android:layout_alignTop="@+id/btnLogout"
+        android:layout_alignParentEnd="true" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="185dp"
         android:layout_height="wrap_content"
         android:text="Log out"
         android:textColor="@color/white"
         android:id="@+id/btnLogout"
         android:textSize="12sp"
         android:background="@drawable/buttons_bg"
-        android:layout_alignTop="@+id/btnEditProfile"
-        android:layout_alignStart="@+id/oppSta"
-        android:layout_marginStart="20dp" />
+        android:layout_marginLeft="5dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"/>
 
    <!-- <Button
         android:layout_width="wrap_content"
