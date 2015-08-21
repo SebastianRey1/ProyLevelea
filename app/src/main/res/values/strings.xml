@@ -85,6 +85,126 @@
         <item>Internship</item>
     </string-array>
 
+
+    <string-array name="skills_information">
+        <item>Analytics</item>
+        <item>Analytical</item>
+        <item>Applications</item>
+        <item>Application Development</item>
+        <item>Attention to Detail</item>
+        <item>Architecture</item>
+        <item>Big Data</item>
+        <item>Business Analytics</item>
+        <item>Business Intelligence</item>
+        <item>Business Process Modeling</item>
+        <item>Cloud Computing</item>
+        <item>Code</item>
+        <item>Coding</item>
+        <item>Computer</item>
+        <item>Communication</item>
+        <item>Content Strategy</item>
+        <item>Content Management</item>
+        <item>Configuration</item>
+        <item>Critical Thinking</item>
+        <item>Customer Support</item>
+        <item>Database</item>
+        <item>Data Analysis</item>
+        <item>Data Analytics</item>
+        <item>Data Intelligence</item>
+        <item>Data Mining</item>
+        <item>Data Science</item>
+        <item>Data Strategy</item>
+        <item>Data Storage</item>
+        <item>Database Administration</item>
+        <item>Design</item>
+        <item>Desktop Support</item>
+        <item>Developer</item>
+        <item>Development</item>
+        <item>Documentation</item>
+        <item>Emerging Technologies</item>
+        <item>File Systems</item>
+        <item>Flexibility</item>
+        <item>Hardware</item>
+        <item>Help Desk</item>
+        <item>Implementation</item>
+        <item>Internet</item>
+        <item>Information Systems</item>
+        <item>Installation</item>
+        <item>Integrated Technologies</item>
+        <item>IT Manager</item>
+        <item>IT Optimization</item>
+        <item>IT Security</item>
+        <item>IT Soft Skills</item>
+        <item>IT Solutions</item>
+        <item>IT Support</item>
+        <item>Languages</item>
+        <item>Logical Thinking</item>
+        <item>Leadership</item>
+        <item>Linux</item>
+        <item>Management</item>
+        <item>Messaging</item>
+        <item>Methodology</item>
+        <item>Metrics</item>
+        <item>Microsoft Office</item>
+        <item>Mobile Applications</item>
+        <item>Motivation</item>
+        <item>Networks</item>
+        <item>Network Operations</item>
+        <item>Networking</item>
+        <item>Operating Systems</item>
+        <item>Operations</item>
+        <item>Organization</item>
+        <item>Presentation</item>
+        <item>Programming</item>
+        <item>Problem Solving</item>
+        <item>Product Development</item>
+        <item>Product Support</item>
+        <item>Product Management</item>
+        <item>Product Training</item>
+        <item>Project Management</item>
+        <item>Repairs</item>
+        <item>Reporting</item>
+        <item>Search Engine Optimization (SEO)</item>
+        <item>Security</item>
+        <item>Self Motivated</item>
+        <item>Self Starting</item>
+        <item>Servers</item>
+        <item>Software</item>
+        <item>Software Development</item>
+        <item>Software Engineering</item>
+        <item>Software Quality Assurance (QA)</item>
+        <item>Storage</item>
+        <item>Support</item>
+        <item>Systems Software</item>
+        <item>Team Building</item>
+        <item>Team Oriented</item>
+        <item>Teamwork</item>
+        <item>Tech Skills Listed by Job</item>
+        <item>Tech Support</item>
+        <item>Technical</item>
+        <item>Technology</item>
+        <item>Technical Services</item>
+        <item>Tech Skills Listed by Job</item>
+        <item>Technical Support</item>
+        <item>Technical Writing</item>
+        <item>Testing</item>
+        <item>Tools</item>
+        <item>Time Management</item>
+        <item>Technical Writing</item>
+        <item>Training</item>
+        <item>Troubleshooting</item>
+        <item>UI / UX</item>
+        <item>User Experience Design</item>
+        <item>Virtualization</item>
+        <item>Web</item>
+        <item>Web Development</item>
+        <item>Web Design</item>
+        <item>Work Independently</item>
+    </string-array>
+
+
+
+
     <string name="country_prompt">Select your Country</string>
     <string-array name="countries_array">
         <item>Afghanistan</item>

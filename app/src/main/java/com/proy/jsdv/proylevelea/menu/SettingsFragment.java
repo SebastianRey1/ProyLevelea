@@ -19,7 +19,7 @@ import com.proy.jsdv.proylevelea.R;
 
 public class SettingsFragment extends android.app.Fragment {
     private Switch OppState;
-    private Button btnAbout;
+    private Button btnChangePass;
 
 
 
@@ -73,9 +73,13 @@ public class SettingsFragment extends android.app.Fragment {
         });
 
 
-       /* btnAbout = (Button) view.findViewById(R.id.aboutApp);
 
-        btnAbout.setOnClickListener(new View.OnClickListener() {
+
+
+
+      /*  btnChangePass = (Button) view.findViewById(R.id.btnChangePass);
+
+        btnChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(),AboutActivity.class);
@@ -86,7 +90,6 @@ public class SettingsFragment extends android.app.Fragment {
 
 
     }
-
 
 
 
