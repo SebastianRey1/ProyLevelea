@@ -7,15 +7,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.proy.jsdv.proylevelea.menu.SearchFragment">
+    
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
             <Spinner
                 android:id="@+id/job_area_spinner"
@@ -58,6 +52,5 @@
                 android:layout_height="400dp"
                 android:layout_alignBottom="@+id/search_btn"
                 android:layout_alignParentBottom="true"></FrameLayout>
-        </ScrollView>
-    </RelativeLayout>
+
 </RelativeLayout>
