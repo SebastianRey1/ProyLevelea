@@ -2,12 +2,16 @@ package com.proy.jsdv.proylevelea.registration;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,17 +20,36 @@ import com.proy.jsdv.proylevelea.R;
 import com.proy.jsdv.proylevelea.Utility;
 import com.proy.jsdv.proylevelea.menu.MainActivity;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
 import org.json.JSONException;
 import org.json.JSONObject;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
 
 public class LogInFragment extends Fragment {
     private Button logInBtn;
     private EditText emailET, passwordET;
-    ProgressDialog prgDialog;
+    private static final String TAG = "WebServiceTask";
+    private static final String SERVICE_URL ="";
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,105 +66,213 @@ public class LogInFragment extends Fragment {
         logInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUser();
+                Intent intent = new Intent(getActivity(),MainActivity.class );
+                startActivity(intent);
             }
-
         });
     }
 
-    public void loginUser() {
-        // Get Email Edit View Value
-        String email = emailET.getText().toString();
-        // Get Password Edit View Value
-        String password = passwordET.getText().toString();
-        // Instantiate Http Request Param Object
-        RequestParams params = new RequestParams();
-        // When Email Edit View and Password Edit View have values other than Null
-        if (Utility.isNotNull(email) && Utility.isNotNull(password)) {
-            // When Email entered is Valid
-            if (Utility.validate(email)) {
-                // Put Http parameter username with value of Email Edit View control
-                params.put("username", email);
-                // Put Http parameter password with value of Password Edit Value control
-                params.put("password", password);
-                // Invoke RESTful Web Service with Http parameters
-                invokeWS(params);
-            }
-            // When Email is invalid
-            else {
-                Toast.makeText(getActivity(), "Please enter valid email", Toast.LENGTH_LONG).show();
-            }
-        } else {
-            Toast.makeText(getActivity(), "Please fill the form, don't leave any field blank", Toast.LENGTH_LONG).show();
+    public void getData() {
+
+        EditText edEmail = (EditText) getView().findViewById(R.id.email_et);
+        EditText edPassword = (EditText) getView().findViewById(R.id.password_et);
+
+        String email = edEmail.getText().toString();
+        String password = edPassword.getText().toString();
+
+        if (email.equals("") || password.equals("")) {
+            Toast.makeText(getActivity(), "Please enter in all required fields.",
+                    Toast.LENGTH_LONG).show();
+            return;
         }
+
+        WebServiceTask wst = new WebServiceTask(WebServiceTask.GET_TASK, getActivity(), "Getting data...");
+
+        wst.addNameValuePair("email", email);
+        wst.addNameValuePair("password", password);
+
+        // the passed String is the URL we will POST to
+        wst.execute(new String[]{SERVICE_URL});
+
     }
-    public void invokeWS(RequestParams params){
-        // Show Progress Dialog
-        prgDialog.show();
-        // Make RESTful webservice call using AsyncHttpClient object
-        AsyncHttpClient client = new AsyncHttpClient();
-        client.get("http://192.168.2.2:9999/useraccount/login/dologin", params, new AsyncHttpResponseHandler() {
-            // When the response returned by REST has Http response code '200'
-            @Override
-            public void onSuccess(String response) {
-                // Hide Progress Dialog
-                prgDialog.hide();
+
+    public void handleResponse(String response) {
+
+        emailET = (EditText) getView().findViewById(R.id.email_et);
+        passwordET = (EditText) getView().findViewById(R.id.password_et);
+        emailET.setText("");
+        passwordET.setText("");
+
+        try {
+
+            JSONObject jso = new JSONObject(response);
+
+            String firstName = jso.getString("email");
+            String lastName = jso.getString("password");
+
+
+            emailET.setText(firstName);
+            passwordET.setText(lastName);
+
+        } catch (Exception e) {
+            Log.e(TAG, e.getLocalizedMessage(), e);
+        }
+
+    }
+
+    private void hideKeyboard() {
+
+        InputMethodManager inputManager = (InputMethodManager) getActivity()
+                .getSystemService(Context.INPUT_METHOD_SERVICE);
+
+        inputManager.hideSoftInputFromWindow(
+                getActivity().getCurrentFocus()
+                        .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+    }
+
+
+    private class WebServiceTask extends AsyncTask<String, Integer, String> {
+
+        public static final int GET_TASK = 1;
+
+        private static final String TAG = "WebServiceTask";
+
+        // connection timeout, in milliseconds (waiting to connect)
+        private static final int CONN_TIMEOUT = 3000;
+
+        // socket timeout, in milliseconds (waiting for data)
+        private static final int SOCKET_TIMEOUT = 5000;
+
+        private int taskType = GET_TASK;
+        private Context mContext = null;
+        private String processMessage = "Processing...";
+
+        private ArrayList<NameValuePair> params = new ArrayList<>();
+
+        private ProgressDialog pDlg = null;
+
+        public WebServiceTask(int taskType, Context mContext, String processMessage) {
+
+            this.taskType = taskType;
+            this.mContext = mContext;
+            this.processMessage = processMessage;
+        }
+
+        public void addNameValuePair(String name, String value) {
+
+            params.add(new BasicNameValuePair(name, value));
+        }
+
+        private void showProgressDialog() {
+
+            pDlg = new ProgressDialog(mContext);
+            pDlg.setMessage(processMessage);
+            pDlg.setProgressDrawable(mContext.getWallpaper());
+            pDlg.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            pDlg.setCancelable(false);
+            pDlg.show();
+
+        }
+
+        @Override
+        protected void onPreExecute() {
+
+            hideKeyboard();
+            showProgressDialog();
+
+        }
+
+        protected String doInBackground(String... urls) {
+
+            String url = urls[0];
+            String result = "";
+
+            HttpResponse response = doResponse(url);
+
+            if (response == null) {
+                return result;
+            } else {
+
                 try {
-                    // JSON Object
-                    JSONObject obj = new JSONObject(response);
-                    // When the JSON response has status boolean value assigned with true
-                    if (obj.getBoolean("status")) {
-                        Toast.makeText(getActivity(), "You are successfully logged in!", Toast.LENGTH_LONG).show();
-                        // Navigate to Home screen
-                        navigationHomeActivity();
-                    }
-                    // Else display error message
-                    else {
-                        Toast.makeText(getActivity(), "Wrong email or password", Toast.LENGTH_LONG).show();
-                    }
-                } catch (JSONException e) {
-                    // TODO Auto-generated catch block
-                    Toast.makeText(getActivity(), "Error Occured [Server's JSON response might be invalid]!", Toast.LENGTH_LONG).show();
-                    e.printStackTrace();
 
+                    result = inputStreamToString(response.getEntity().getContent());
+
+                } catch (IllegalStateException e) {
+                    Log.e(TAG, e.getLocalizedMessage(), e);
+
+                } catch (IOException e) {
+                    Log.e(TAG, e.getLocalizedMessage(), e);
                 }
+
             }
 
-            // When the response returned by REST has Http response code other than '200'
-            @Override
-            public void onFailure(int statusCode, Throwable error,
-                                  String content) {
-                // Hide Progress Dialog
-                prgDialog.hide();
-                // When Http response code is '404'
-                if (statusCode == 404) {
-                    Toast.makeText(getActivity(), "Requested resource not found", Toast.LENGTH_LONG).show();
+            return result;
+        }
+
+        @Override
+        protected void onPostExecute(String response) {
+
+            handleResponse(response);
+            pDlg.dismiss();
+
+        }
+
+        // Establish connection and socket (data retrieval) timeouts
+        private HttpParams getHttpParams() {
+
+            HttpParams http = new BasicHttpParams();
+
+            HttpConnectionParams.setConnectionTimeout(http, CONN_TIMEOUT);
+            HttpConnectionParams.setSoTimeout(http, SOCKET_TIMEOUT);
+
+            return http;
+        }
+
+        private HttpResponse doResponse(String url) {
+
+            // Use our connection and data timeouts as parameters for our
+            // DefaultHttpClient
+            HttpClient httpclient = new DefaultHttpClient(getHttpParams());
+
+            HttpResponse response = null;
+
+            try {
+                switch (taskType) {
+
+                    case GET_TASK:
+                        HttpGet httpget = new HttpGet(url);
+                        response = httpclient.execute(httpget);
+                        break;
                 }
-                // When Http response code is '500'
-                else if (statusCode == 500) {
-                    Toast.makeText(getActivity(), "Something went wrong at server end", Toast.LENGTH_LONG).show();
-                }
-                // When Http response code other than 404, 500
-                else {
-                    Toast.makeText(getActivity(), "Unexpected Error occcured! [Most common Error: Device might not be connected to Internet or remote server is not up and running]", Toast.LENGTH_LONG).show();
-                }
+            } catch (Exception e) {
+
+                Log.e(TAG, e.getLocalizedMessage(), e);
+
             }
-        });
+
+            return response;
+        }
+
+        private String inputStreamToString(InputStream is) {
+
+            String line = "";
+            StringBuilder total = new StringBuilder();
+
+            // Wrap a BufferedReader around the InputStream
+            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+
+            try {
+                // Read response until the end
+                while ((line = rd.readLine()) != null) {
+                    total.append(line);
+                }
+            } catch (IOException e) {
+                Log.e(TAG, e.getLocalizedMessage(), e);
+            }
+
+            // Return full string
+            return total.toString();
+        }
+
     }
-
-    /**
-     * Method which navigates from Login Activity to Home Activity
-     */
-    public void navigationHomeActivity(){
-        Intent homeIntent = new Intent(getActivity(),MainActivity.class);
-        homeIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(homeIntent);
-    }
-
-    /**
-     * Method gets triggered when Register button is clicked
-     *
-     * @param view
-     */
-
 }

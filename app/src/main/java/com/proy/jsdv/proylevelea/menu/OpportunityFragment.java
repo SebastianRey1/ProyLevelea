@@ -31,7 +31,7 @@ import java.util.List;
 
 public class OpportunityFragment extends android.app.Fragment {
     public static final String ARG_SECTION_TITLE = "section_number";
-    //private String URL_FEED = "https://levelea-oportunities.azure-mobile.net/";
+    //private String URL_FEED = "http://lvlup.azurewebsites.net/Api/WSOpportunity/list/10";
     private String URL_FEED = "https://api.myjson.com/bins/3mc8o";
     private static final String TAG = OpportunityFragment.class.getSimpleName();
     private ListView listView;
