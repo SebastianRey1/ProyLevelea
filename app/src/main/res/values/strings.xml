@@ -86,7 +86,7 @@
     </string-array>
 
 
-    <string-array name="skills_information">
+    <ListView name="skills_listView">
         <item>Analytics</item>
         <item>Analytical</item>
         <item>Applications</item>
@@ -200,7 +200,7 @@
         <item>Web Development</item>
         <item>Web Design</item>
         <item>Work Independently</item>
-    </string-array>
+    </ListView>
 
 
 

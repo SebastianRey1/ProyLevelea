@@ -24,36 +24,31 @@
 
 
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/imageView2"
-                android:background="@drawable/ic_account_circle_black_48dp"
-                android:layout_marginLeft="3dp"
-                android:layout_alignParentStart="true" />
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:id="@+id/full_name"
                 android:editable="false"
                 android:background="#00000000"
-                android:text="David Miguel Infantes"
+                android:text="Juana Maria Perez"
                 android:textSize="25dp"
+                android:layout_gravity="center_horizontal|center"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="15dp"
                 android:textStyle="bold"/>
 
-            <EditText
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center"
                 android:layout_marginTop="10dp"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:background="#00000000"
                 android:id="@+id/idCareer"
-                android:text="Ingenieria de Software"
+                android:text="software engineer"
                 android:textSize="18dp"
                 android:layout_below="@+id/full_name"
                 android:layout_centerHorizontal="true"
@@ -65,30 +60,30 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Contact Information"
+                android:textSize="15dp"
+                android:layout_marginTop="80dp"
                 android:id="@+id/infoContact"
                 android:layout_marginLeft="15dp"/>
 
 
 
-                    <EditText
+                    <TextView
                         android:gravity="fill_horizontal|center"
                         android:layout_width="280dp"
                         android:layout_height="40dp"
                         android:text="Email"
                         android:id="@+id/textEmail"
-                        android:background="#00000000"
+                        android:layout_marginLeft="30dp"
                         android:layout_above="@+id/textPhone"
-                        android:layout_centerHorizontal="true"
-                        android:editable="false"/>
+                        android:layout_centerHorizontal="true" />
 
-                    <EditText
+                    <TextView
                         android:gravity="fill_horizontal|center"
                         android:layout_width="280dp"
                         android:layout_height="40dp"
-                        android:background="#00000000"
                         android:text="Telephone"
+                        android:layout_marginLeft="30dp"
                         android:id="@+id/textPhone"
-                        android:editable="false"
                         android:layout_alignParentBottom="true"
                         android:layout_alignStart="@+id/textEmail" />
 
@@ -100,69 +95,24 @@
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="Skills Information"
                 android:id="@+id/infoSkills"
+                android:textSize="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
                 android:layout_below="@+id/relativeLayout2"
                 android:layout_alignStart="@+id/infoContact" />
 
-                <Spinner
-                    android:layout_width="280dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinnerSkill1"
-                    android:entries="@array/skills_information"
-                    />
+                <ListView
+                    android:layout_marginTop="20dp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/list_item"
+                    android:layout_marginLeft="30dp">
+                </ListView>
 
-                <Spinner
-                    android:layout_width="280dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinnerSkill2"
-                    android:entries="@array/skills_information"
-                    android:layout_below="@+id/spinnerSkill1"
-                    android:layout_alignStart="@+id/spinnerSkill1"
-                    />
-                <Spinner
-                    android:layout_width="280dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinnerSkill3"
-                    android:entries="@array/skills_information"
-                    android:layout_below="@+id/spinnerSkill2"
-                    android:layout_alignStart="@+id/spinnerSkill2"
-                    />
-                <Spinner
-                    android:layout_width="280dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinnerSkill4"
-                    android:entries="@array/skills_information"
-                    android:layout_below="@+id/spinnerSkill3"
-                    android:layout_alignStart="@+id/spinnerSkill3"
-                    />
-                <Spinner
-                    android:layout_width="280dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinnerSkill5"
-                    android:entries="@array/skills_information"
-                    android:layout_below="@+id/spinnerSkill4"
-                    android:layout_alignStart="@+id/spinnerSkill4"
-                    />
-                <Spinner
-                    android:layout_width="280dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinnerSkill6"
-                    android:entries="@array/skills_information"
-                    android:layout_below="@+id/spinnerSkill5"
-                    android:layout_alignStart="@+id/spinnerSkill5"
-                    />
-                <Spinner
-                    android:layout_width="280dp"
-                    android:layout_height="40dp"
-                    android:id="@+id/spinnerSkill7"
-                    android:entries="@array/skills_information"
-                    android:layout_below="@+id/spinnerSkill6"
-                    android:layout_alignStart="@+id/spinnerSkill6"
-                    />
 
 
             <Button
+                android:layout_marginTop="50dp"
                 android:layout_width="185dp"
                 android:layout_height="wrap_content"
                 android:text="Edit Profile"
