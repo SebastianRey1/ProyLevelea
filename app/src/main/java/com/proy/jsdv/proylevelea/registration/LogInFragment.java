@@ -66,213 +66,59 @@ public class LogInFragment extends Fragment {
         logInBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),MainActivity.class );
+                Intent intent = new Intent(getActivity(), MainActivity.class);
                 startActivity(intent);
             }
         });
     }
-
-    public void getData() {
-
-        EditText edEmail = (EditText) getView().findViewById(R.id.email_et);
-        EditText edPassword = (EditText) getView().findViewById(R.id.password_et);
-
-        String email = edEmail.getText().toString();
-        String password = edPassword.getText().toString();
-
-        if (email.equals("") || password.equals("")) {
-            Toast.makeText(getActivity(), "Please enter in all required fields.",
-                    Toast.LENGTH_LONG).show();
-            return;
-        }
-
-        WebServiceTask wst = new WebServiceTask(WebServiceTask.GET_TASK, getActivity(), "Getting data...");
-
-        wst.addNameValuePair("email", email);
-        wst.addNameValuePair("password", password);
-
-        // the passed String is the URL we will POST to
-        wst.execute(new String[]{SERVICE_URL});
-
-    }
-
-    public void handleResponse(String response) {
-
-        emailET = (EditText) getView().findViewById(R.id.email_et);
-        passwordET = (EditText) getView().findViewById(R.id.password_et);
-        emailET.setText("");
-        passwordET.setText("");
-
+    public static String GET(String url){
+        InputStream inputStream = null;
+        String result = "";
         try {
 
-            JSONObject jso = new JSONObject(response);
+            // create HttpClient
+            HttpClient httpclient = new DefaultHttpClient();
 
-            String firstName = jso.getString("email");
-            String lastName = jso.getString("password");
+            // make GET request to the given URL
+            HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
 
+            // receive response as inputStream
+            inputStream = httpResponse.getEntity().getContent();
 
-            emailET.setText(firstName);
-            passwordET.setText(lastName);
+            // convert inputstream to string
+            if(inputStream != null)
+                result = convertInputStreamToString(inputStream);
+            else
+                result = "Did not work!";
 
         } catch (Exception e) {
-            Log.e(TAG, e.getLocalizedMessage(), e);
+            Log.d("InputStream", e.getLocalizedMessage());
         }
+
+        return result;
+    }
+    private static String convertInputStreamToString(InputStream inputStream) throws IOException{
+        BufferedReader bufferedReader = new BufferedReader( new InputStreamReader(inputStream));
+        String line = "";
+        String result = "";
+        while((line = bufferedReader.readLine()) != null)
+            result += line;
+
+        inputStream.close();
+        return result;
 
     }
-
-    private void hideKeyboard() {
-
-        InputMethodManager inputManager = (InputMethodManager) getActivity()
-                .getSystemService(Context.INPUT_METHOD_SERVICE);
-
-        inputManager.hideSoftInputFromWindow(
-                getActivity().getCurrentFocus()
-                        .getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
-    }
-
-
-    private class WebServiceTask extends AsyncTask<String, Integer, String> {
-
-        public static final int GET_TASK = 1;
-
-        private static final String TAG = "WebServiceTask";
-
-        // connection timeout, in milliseconds (waiting to connect)
-        private static final int CONN_TIMEOUT = 3000;
-
-        // socket timeout, in milliseconds (waiting for data)
-        private static final int SOCKET_TIMEOUT = 5000;
-
-        private int taskType = GET_TASK;
-        private Context mContext = null;
-        private String processMessage = "Processing...";
-
-        private ArrayList<NameValuePair> params = new ArrayList<>();
-
-        private ProgressDialog pDlg = null;
-
-        public WebServiceTask(int taskType, Context mContext, String processMessage) {
-
-            this.taskType = taskType;
-            this.mContext = mContext;
-            this.processMessage = processMessage;
-        }
-
-        public void addNameValuePair(String name, String value) {
-
-            params.add(new BasicNameValuePair(name, value));
-        }
-
-        private void showProgressDialog() {
-
-            pDlg = new ProgressDialog(mContext);
-            pDlg.setMessage(processMessage);
-            pDlg.setProgressDrawable(mContext.getWallpaper());
-            pDlg.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            pDlg.setCancelable(false);
-            pDlg.show();
-
-        }
-
+    private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         @Override
-        protected void onPreExecute() {
-
-            hideKeyboard();
-            showProgressDialog();
-
-        }
-
         protected String doInBackground(String... urls) {
 
-            String url = urls[0];
-            String result = "";
-
-            HttpResponse response = doResponse(url);
-
-            if (response == null) {
-                return result;
-            } else {
-
-                try {
-
-                    result = inputStreamToString(response.getEntity().getContent());
-
-                } catch (IllegalStateException e) {
-                    Log.e(TAG, e.getLocalizedMessage(), e);
-
-                } catch (IOException e) {
-                    Log.e(TAG, e.getLocalizedMessage(), e);
-                }
-
-            }
-
-            return result;
+            return GET(urls[0]);
         }
-
+        // onPostExecute displays the results of the AsyncTask.
         @Override
-        protected void onPostExecute(String response) {
-
-            handleResponse(response);
-            pDlg.dismiss();
-
+        protected void onPostExecute(String result) {
+            Toast.makeText(getActivity(), "Received!", Toast.LENGTH_LONG).show();
+            emailET.setText(result);
         }
-
-        // Establish connection and socket (data retrieval) timeouts
-        private HttpParams getHttpParams() {
-
-            HttpParams http = new BasicHttpParams();
-
-            HttpConnectionParams.setConnectionTimeout(http, CONN_TIMEOUT);
-            HttpConnectionParams.setSoTimeout(http, SOCKET_TIMEOUT);
-
-            return http;
-        }
-
-        private HttpResponse doResponse(String url) {
-
-            // Use our connection and data timeouts as parameters for our
-            // DefaultHttpClient
-            HttpClient httpclient = new DefaultHttpClient(getHttpParams());
-
-            HttpResponse response = null;
-
-            try {
-                switch (taskType) {
-
-                    case GET_TASK:
-                        HttpGet httpget = new HttpGet(url);
-                        response = httpclient.execute(httpget);
-                        break;
-                }
-            } catch (Exception e) {
-
-                Log.e(TAG, e.getLocalizedMessage(), e);
-
-            }
-
-            return response;
-        }
-
-        private String inputStreamToString(InputStream is) {
-
-            String line = "";
-            StringBuilder total = new StringBuilder();
-
-            // Wrap a BufferedReader around the InputStream
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-
-            try {
-                // Read response until the end
-                while ((line = rd.readLine()) != null) {
-                    total.append(line);
-                }
-            } catch (IOException e) {
-                Log.e(TAG, e.getLocalizedMessage(), e);
-            }
-
-            // Return full string
-            return total.toString();
-        }
-
     }
 }
