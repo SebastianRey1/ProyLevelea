@@ -1,12 +1,159 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.proy.jsdv.proylevelea.menu.InboxFragment">
 
-    <TextView android:text="@string/hello_Message" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <RelativeLayout
+        android:id="@+id/relativeLayout1"
+        android:Layout_gravity="center_horizontal"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:background="@drawable/border_relative_layout_style"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/relativeLayout2">
+
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Hp Developer"
+            android:id="@+id/news1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Usted aplico para el puesto de Developer"
+            android:id="@+id/subNews1"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+    android:id="@+id/relativeLayout2"
+    android:layout_marginTop="10dp"
+    android:layout_width="400dp"
+    android:layout_height="100dp"
+    android:background="@drawable/border_relative_layout_style"
+    android:layout_below="@+id/relativeLayout1"
+    android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Web design"
+            android:id="@+id/news2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="I will accept your application"
+            android:id="@+id/subNews2"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_marginTop="10dp"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:background="@drawable/border_relative_layout_style"
+        android:layout_below="@+id/relativeLayout2"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="java Programmer"
+            android:id="@+id/news3"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="you have been considered for the position mentioned"
+            android:id="@+id/subNews3"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_marginTop="10dp"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:background="@drawable/border_relative_layout_style"
+        android:layout_below="@+id/relativeLayout3"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Front-End Web Developer"
+            android:id="@+id/news4"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="These among those selected to apply for the post"
+            android:id="@+id/subNews4"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout5"
+        android:layout_marginTop="10dp"
+        android:layout_width="400dp"
+        android:layout_height="100dp"
+        android:background="@drawable/border_relative_layout_style"
+        android:layout_below="@+id/relativeLayout4"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Senior Java Developer"
+            android:id="@+id/news5"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text=""
+            android:id="@+id/subNews5"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

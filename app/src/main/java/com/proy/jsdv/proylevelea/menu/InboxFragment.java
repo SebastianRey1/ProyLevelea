@@ -1,14 +1,19 @@
 package com.proy.jsdv.proylevelea.menu;
 
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import com.proy.jsdv.proylevelea.R;
 
-public class InboxFragment extends android.app.Fragment {
+public class InboxFragment extends ListFragment {
     public static final String ARG_SECTION_TITLE = "section_number";
+    ListView lista;
+    ArrayAdapter<String> adaptador;
 
     public static InboxFragment newInstance(String sectionTitle) {
         InboxFragment fragment = new InboxFragment();
@@ -31,6 +36,11 @@ public class InboxFragment extends android.app.Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
     }
+
+
 }
 
