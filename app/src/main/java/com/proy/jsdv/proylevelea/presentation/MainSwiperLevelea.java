@@ -1,5 +1,6 @@
 package com.proy.jsdv.proylevelea.presentation;
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.v4.view.PagerTabStrip;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 
 import com.proy.jsdv.proylevelea.R;
 import com.proy.jsdv.proylevelea.presentation.DisplayAdapter;
+import com.proy.jsdv.proylevelea.registration.LogInFragment;
+import com.proy.jsdv.proylevelea.registration.RegistrationFragment;
 
 import org.w3c.dom.Text;
 
@@ -22,11 +25,10 @@ import org.w3c.dom.Text;
 public class MainSwiperLevelea extends ActionBarActivity {
     ViewPager paper;
     PagerTabStrip tab_strp;
+    private static final String REGISTER_FRAGMENT_TAG = "register_fragment";
+    private static final String LOG_IN_FRAGMENT_TAG = "log_in_frag";
+    Button logInBtnVisibility, registerBtnVisibility;
 
-    Button BtnReg;
-    Button btnLogIn;
-    TextView txtName;
-    TextView txtLastName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,45 @@ public class MainSwiperLevelea extends ActionBarActivity {
         return false;
         // return super.onOptionsItemSelected(item);
     }
-
-
+    public void toggleCancelRegistration(View view) {
+        Fragment f = getFragmentManager().findFragmentByTag(REGISTER_FRAGMENT_TAG);
+        if (f != null) {
+            getFragmentManager().popBackStack();
+        } else {
+            getFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.animator.slide_down,
+                            R.animator.slide_up,
+                            R.animator.slide_down,
+                            R.animator.slide_up)
+                    .add(R.id.register_fragment, RegistrationFragment
+                                    .instantiate(this, RegistrationFragment.class.getName()),
+                            REGISTER_FRAGMENT_TAG
+                    )
+                    .addToBackStack(null).commit();
+        }
+        setButtonVisibility();
+    }
+    public void toggleCancelLogIn(View view) {
+        Fragment f = getFragmentManager().findFragmentByTag(LOG_IN_FRAGMENT_TAG);
+        if (f != null) {
+            getFragmentManager().popBackStack();
+        } else {
+            getFragmentManager().beginTransaction()
+                    .setCustomAnimations(R.animator.slide_down,
+                            R.animator.slide_up,
+                            R.animator.slide_down,
+                            R.animator.slide_up)
+                    .add(R.id.log_in_frag, LogInFragment
+                                    .instantiate(this, LogInFragment.class.getName()),
+                            LOG_IN_FRAGMENT_TAG
+                    ).addToBackStack(null).commit();
+        }
+        setButtonVisibility();
+    }
+    public void setButtonVisibility(){
+        logInBtnVisibility = (Button)findViewById(R.id.log_in_btn);
+        registerBtnVisibility =(Button)findViewById(R.id.register_btn1);
+        logInBtnVisibility.setVisibility(View.VISIBLE);
+        registerBtnVisibility.setVisibility(View.VISIBLE);
+    }
 }

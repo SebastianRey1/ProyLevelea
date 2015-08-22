@@ -38,7 +38,7 @@
         </TextView>
 
         <EditText
-                android:id="@+id/email"
+                android:id="@+id/email_et"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:inputType="textEmailAddress"
@@ -57,7 +57,7 @@
                 android:layout_height="wrap_content"
                 android:inputType="textPassword"
                 android:ems="10"
-                android:id="@+id/editText"
+                android:id="@+id/password_et"
                 android:layout_column="1"
                 android:layout_span="2"
                 android:background="@drawable/border_tf_style"/>
@@ -78,7 +78,7 @@
                 android:id="@+id/bn_cancel1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="clearControls"
+                android:onClick="toggleCancelLogIn"
                 android:textSize="12sp"
                 android:textColor="@color/white"
                 android:background="@drawable/buttons_bg"

@@ -53,6 +53,8 @@ public class SignInOptionsFragment extends Fragment {
                             LOG_IN_FRAGMENT_TAG
                     ).addToBackStack(null).commit();
         }
+        logInBtn.setVisibility(View.INVISIBLE);
+        registerBtn.setVisibility(View.INVISIBLE);
     }
     private void toggleRegisterFragment() {
         Fragment f = getFragmentManager().findFragmentByTag(REGISTER_FRAGMENT_TAG);
@@ -69,6 +71,8 @@ public class SignInOptionsFragment extends Fragment {
                             REGISTER_FRAGMENT_TAG
                     ).addToBackStack(null).commit();
         }
+        logInBtn.setVisibility(View.INVISIBLE);
+        registerBtn.setVisibility(View.INVISIBLE);
     }
 
 }

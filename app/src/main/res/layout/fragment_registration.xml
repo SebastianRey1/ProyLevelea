@@ -236,7 +236,6 @@
                 android:id="@+id/bn_register"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="postData"
                 android:textSize="12sp"
                 android:textColor="@color/white"
                 android:background="@drawable/buttons_bg"
@@ -245,6 +244,7 @@
 
             <Button
                 android:id="@+id/bn_cancel2"
+                android:onClick="toggleCancelRegistration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
