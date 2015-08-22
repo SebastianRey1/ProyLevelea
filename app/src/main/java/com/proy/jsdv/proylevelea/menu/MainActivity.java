@@ -179,20 +179,6 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
             drawerLayout.closeDrawers(); // Cerrar drawer
             setTitle(Item); // Setear título actual
-        }else if (Item.equals("Feedback")) {
-            Bundle args = new Bundle();
-            args.putString(FeedbackFragment.ARG_SECTION_TITLE, Item);
-
-            android.app.Fragment fragment = SearchFragment.newInstance(Item);
-            fragment.setArguments(args);
-            android.app.FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager
-                    .beginTransaction()
-                    .replace(R.id.main_content, FeedbackFragment.
-                            instantiate(MainActivity.this, FeedbackFragment.class.getName()))
-                    .commit();
-            drawerLayout.closeDrawers(); // Cerrar drawer
-            setTitle(Item); // Setear título actual
         }
         else if (Item.equals("Inbox")) {
             Bundle args = new Bundle();

@@ -1,5 +1,6 @@
 package com.proy.jsdv.proylevelea.menu;
 
+import android.app.Fragment;
 import android.app.ListFragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,7 +11,7 @@ import android.widget.ListView;
 
 import com.proy.jsdv.proylevelea.R;
 
-public class InboxFragment extends ListFragment {
+public class InboxFragment extends Fragment {
     public static final String ARG_SECTION_TITLE = "section_number";
     ListView lista;
     ArrayAdapter<String> adaptador;
