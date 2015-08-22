@@ -1,5 +1,6 @@
 package com.proy.jsdv.proylevelea.menu;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.Toast;
 
@@ -14,13 +16,9 @@ import com.proy.jsdv.proylevelea.AboutActivity;
 import com.proy.jsdv.proylevelea.R;
 
 
-
-
-
 public class SettingsFragment extends android.app.Fragment {
     private Switch OppState;
     private Button btnChangePass;
-
 
 
     public static final String ARG_SECTION_TITLE = "section_number";
@@ -50,7 +48,6 @@ public class SettingsFragment extends android.app.Fragment {
         super.onCreate(savedInstanceState);
 
 
-
     }
 
     @Override
@@ -77,23 +74,46 @@ public class SettingsFragment extends android.app.Fragment {
 
 
 
-      /*  btnChangePass = (Button) view.findViewById(R.id.btnChangePass);
+       btnChangePass = (Button) view.findViewById(R.id.btnChangePass);
 
         btnChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),AboutActivity.class);
-                startActivity(i);
+                PasswordChangeDialog();
+
             }
-        });*/
-
-
+        });
 
     }
+    public void PasswordChangeDialog() {
+        LayoutInflater layoutInflater = getActivity().getLayoutInflater();
+        View dialogLayout = layoutInflater.inflate(R.layout.activity_change_password, null);
+        final EditText oldPassText = (EditText)getView().findViewById(R.id.editOldPass);
+        final EditText newPassText = (EditText)getView().findViewById(R.id.editNewPass);
+        final EditText retypeNewPassText = (EditText)getView().findViewById(R.id.editReNewPass);
+        Button cancelPassRequest = (Button)getView().findViewById(R.id.btnCancel_password_change);
+        final AlertDialog builder = new AlertDialog.Builder(getActivity()).create();
+        builder.setView(dialogLayout);
+        builder.show();
+        cancelPassRequest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.dismiss();
+            }
+        });
+        Button changePassword = (Button)getView().findViewById(R.id.btnConfirm);
+        changePassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String oldPass = oldPassText.getText().toString();
+                String newPass = newPassText.getText().toString();
+                String retypeNewPass = retypeNewPassText.getText().toString();
 
-
-
-
-
+            }
+        });
+    }
 }
+
+
+
 

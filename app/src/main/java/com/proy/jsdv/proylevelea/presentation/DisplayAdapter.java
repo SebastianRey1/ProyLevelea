@@ -19,6 +19,7 @@ public class DisplayAdapter<DisplayAdapter> extends FragmentPagerAdapter {
 
         switch (i) {
             case 0:
+
                 tab1 t1 = new tab1();
                 return t1;
             case 1:

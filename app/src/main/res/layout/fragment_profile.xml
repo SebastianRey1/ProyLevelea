@@ -13,7 +13,7 @@
 
 
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/relative1"
@@ -60,19 +60,6 @@
                 android:editable="false"/>
 
 
-
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="450dp"
-            android:layout_marginTop="125dp"
-            android:background="@drawable/border_rectangle_tv_style"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:id="@+id/relativeLayout">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -81,16 +68,6 @@
                 android:id="@+id/infoContact"
                 android:layout_marginLeft="15dp"/>
 
-
-
-
-            <RelativeLayout
-                android:layout_width="330dp"
-                android:layout_height="100dp"
-                android:background="@drawable/border_relative_layout_style"
-                android:layout_below="@+id/infoContact"
-                android:layout_centerHorizontal="true"
-                android:id="@+id/relativeLayout2">
 
 
                     <EditText
@@ -115,8 +92,6 @@
                         android:layout_alignParentBottom="true"
                         android:layout_alignStart="@+id/textEmail" />
 
-                </RelativeLayout>
-
 
 
             <TextView
@@ -129,16 +104,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_below="@+id/relativeLayout2"
                 android:layout_alignStart="@+id/infoContact" />
-
-            <RelativeLayout
-                android:layout_width="330dp"
-                android:layout_height="300dp"
-                android:background="@drawable/border_relative_layout_style"
-                android:id="@+id/relativeLayout3"
-                android:layout_below="@+id/infoSkills"
-                android:layout_alignLeft="@+id/relativeLayout2">
-
-
 
                 <Spinner
                     android:layout_width="280dp"
@@ -196,8 +161,6 @@
                     android:layout_alignStart="@+id/spinnerSkill6"
                     />
 
-            </RelativeLayout>
-
 
             <Button
                 android:layout_width="185dp"
@@ -209,14 +172,7 @@
                 android:textSize="12sp"
                 android:layout_below="@+id/relativeLayout3"
                 android:layout_alignStart="@+id/relativeLayout3"/>
-
-
-
-            </RelativeLayout>
-
-
-
-        </RelativeLayout>
+        </LinearLayout>
 
     </ScrollView>
 

@@ -36,27 +36,13 @@ public class MainActivity extends AppCompatActivity {
     private String drawerTitle;
 
 
-    /**
-     *
-     * Para el swiper view
-     */
-    ViewPager paper;
-    PagerTabStrip tab_strp;
+
 
 
     @Override
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-        /**
-         * Llamar a los tabs
-         */
 
-        DisplayAdapter<DisplayAdapter> dpaper = new DisplayAdapter<DisplayAdapter>(getSupportFragmentManager());
-        paper = (ViewPager)findViewById(R.id.pager);
-
-        paper.setAdapter(dpaper);
-        tab_strp = (PagerTabStrip)findViewById(R.id.tab_strip);
-        tab_strp.setTextColor(Color.WHITE);
     }
 
     @Override
@@ -129,12 +115,12 @@ public class MainActivity extends AppCompatActivity {
             case R.id.contact_us:
             LayoutInflater inflater = getLayoutInflater();
 
-            View dialoglayout = inflater.inflate(R.layout.activity_contact_us, null);
+            View dialogLayout = inflater.inflate(R.layout.activity_contact_us, null);
 
-            final EditText etAsunto = (EditText) dialoglayout.findViewById(R.id.et_EmailAsunto);
-            final EditText etMensaje = (EditText) dialoglayout.findViewById(R.id.et_EmailMensaje);
+            final EditText etAsunto = (EditText) dialogLayout.findViewById(R.id.et_EmailAsunto);
+            final EditText etMensaje = (EditText) dialogLayout.findViewById(R.id.et_EmailMensaje);
 
-            Button sendMailBtn = (Button) dialoglayout.findViewById(R.id.btn_send_mail);
+            Button sendMailBtn = (Button) dialogLayout.findViewById(R.id.btn_send_mail);
             sendMailBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -155,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
             });
 
             AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-            builder.setView(dialoglayout);
+            builder.setView(dialogLayout);
             builder.show();
 
             return true;

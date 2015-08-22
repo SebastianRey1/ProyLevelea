@@ -20,9 +20,8 @@ public class RegistrationFragment extends Fragment {
     private static final String REGISTER_FRAGMENT_TAG = "register_fragment";
     private Button registerBtn, cancelBtn;
     private Spinner countrySpinner;
-    private String firstName, lastName,idNumber ,email,password,retypePassword,phoneNumber,country;
-    private EditText firstNametxt, lastNametxt, idNumbertxt, emailtxt,passwordtxt,retypePasswordtxt
-            ,phoneNumbertxt;
+    private String firstName, lastName, idNumber, email, password, retypePassword, phoneNumber, country;
+    private EditText firstNametxt, lastNametxt, idNumbertxt, emailtxt, passwordtxt, retypePasswordtxt, phoneNumbertxt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -61,14 +60,16 @@ public class RegistrationFragment extends Fragment {
                     .addToBackStack(null).commit();
         }
     }
+
     public void addListenerOnCountrySpinnerSelection() {
-        countrySpinner=(Spinner)getView().findViewById(R.id.country_spinner);
+        countrySpinner = (Spinner) getView().findViewById(R.id.country_spinner);
         countrySpinner.setOnItemSelectedListener(new CustomItemSelectedListener());
     }
-    public void addRegistrationListenerButton(){
+
+    public void addRegistrationListenerButton() {
         EditTextInitializer();
 
-        registerBtn = (Button)getView().findViewById(R.id.bn_register);
+        registerBtn = (Button) getView().findViewById(R.id.bn_register);
         registerBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,8 +88,7 @@ public class RegistrationFragment extends Fragment {
                                 getString(R.string.password_match),
                                 Toast.LENGTH_SHORT).show();
                     }
-                }
-                else {
+                } else {
                     Toast.makeText(getActivity(),
                             getString(R.string.missing_values),
                             Toast.LENGTH_SHORT).show();
@@ -96,18 +96,20 @@ public class RegistrationFragment extends Fragment {
             }
         });
     }
-    public void EditTextInitializer(){
-        firstNametxt = (EditText)getView().findViewById(R.id.first_name);
-        lastNametxt = (EditText)getView().findViewById(R.id.last_name);
-        idNumbertxt = (EditText)getView().findViewById(R.id.id_number);
-        phoneNumbertxt = (EditText)getView().findViewById(R.id.phone_number);
-        countrySpinner = (Spinner)getView().findViewById(R.id.country_spinner);
-        emailtxt =  (EditText)getView().findViewById(R.id.email_field);
-        passwordtxt = (EditText)getView().findViewById(R.id.password_field);
-        retypePasswordtxt = (EditText)getView().findViewById(R.id.retype_password_field);
+
+    public void EditTextInitializer() {
+        firstNametxt = (EditText) getView().findViewById(R.id.first_name);
+        lastNametxt = (EditText) getView().findViewById(R.id.last_name);
+        idNumbertxt = (EditText) getView().findViewById(R.id.id_number);
+        phoneNumbertxt = (EditText) getView().findViewById(R.id.phone_number);
+        countrySpinner = (Spinner) getView().findViewById(R.id.country_spinner);
+        emailtxt = (EditText) getView().findViewById(R.id.email_field);
+        passwordtxt = (EditText) getView().findViewById(R.id.password_field);
+        retypePasswordtxt = (EditText) getView().findViewById(R.id.retype_password_field);
 
     }
-    public void EditTextSetter(){
+
+    public void EditTextSetter() {
         setCountry(String.valueOf(countrySpinner.getSelectedItem()));
         setFirstName(firstNametxt.getText().toString());
         setLastName(lastNametxt.getText().toString());
@@ -117,6 +119,7 @@ public class RegistrationFragment extends Fragment {
         setRetypePassword(retypePasswordtxt.getText().toString());
         setPhoneNumber(phoneNumbertxt.getText().toString());
     }
+
     public String getFirstName() {
         return firstName;
     }
